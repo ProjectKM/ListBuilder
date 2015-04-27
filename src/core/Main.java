@@ -5,6 +5,7 @@ package core;
 
 import java.io.IOException;
 
+import core.scholar.ConnectionFinder;
 import core.web.webGrabber;
 
 /**
@@ -24,14 +25,7 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		System.out.println("test");
-		try {
-			System.out.println(webGrabber.UrlToString("https://scholar.google.nl/citations?user=RL-mjvUAAAAJ&hl=nl"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println("test");
+		new ConnectionFinder("3TofHnIAAAAJ");
 
 	}
 
