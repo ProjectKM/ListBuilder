@@ -39,10 +39,21 @@ public class ConnectionFinder {
 		String userUrl = userBaseUrl + scholarId;
 		String data = getData(userUrl);
 		String name = grabName(data);
+		ArrayList<Person> connections = grabConnections(data);
 		String university = grabUni(data);
 		System.out.println(university);
 	}
 	
+	private ArrayList<Person> grabConnections(String data) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	private String clearColleageData(String data){
+		String openNameElement = "<div id=\"gs_ccl\" role=\"main\">";
+		String closeNameElement = "</html>";
+		return grabDataFromString(data, openNameElement, closeNameElement);
+	}
 	private String grabName(String data){
 		String openNameElement = "<div id=\"gsc_prf_in\">";
 		String closeNameElement = "</div>";
