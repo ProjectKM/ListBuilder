@@ -36,9 +36,8 @@ public class Person {
 		setName(name);
 		setScholarId(scholarId);
 	}
-	public Person(int id, String name, String scholarId, String university) {
+	public Person(String name, String scholarId, String university) {
 		init();
-		this.id = id;
 		setName(name);
 		setScholarId(scholarId);
 		setUniversity(university);
@@ -61,6 +60,9 @@ public class Person {
 	
 	public void addConnection(Person connection){
 		connections.add(connection);
+	}
+	public void addConnection(ArrayList<Person> person){
+		connections.addAll(person);
 	}
 	
 	/**

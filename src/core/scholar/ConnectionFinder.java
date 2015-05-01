@@ -14,17 +14,9 @@ import dataContainer.Person;
  *
  */
 public class ConnectionFinder {
-	private final String colleaguesBaseUrl = "https://scholar.google.nl/citations?view_op=list_colleagues&hl=nl&user=";
-	private ArrayList<Person> persons = new ArrayList<Person>();
+	private final static String colleaguesBaseUrl = "https://scholar.google.nl/citations?view_op=list_colleagues&hl=nl&user=";
 	
-	/**
-	 * 
-	 */
-	public ConnectionFinder(String startString) {
-		AddPersonsToConnections(startString);
-	}
-	
-	private String getData(String url){
+	private static String getData(String url){
 		try {
 			return webGrabber.UrlToString(url);
 		} catch (IOException e) {
@@ -33,8 +25,8 @@ public class ConnectionFinder {
 			return null;
 		}
 	}
-	
-	private void AddPersonsToConnections(String scholarId){
+	public static ArrayList<Person> getPersonsToConnections(String scholarId){
+		ArrayList<Person> connections = new ArrayList<Person>();
 		String userUrl = colleaguesBaseUrl + scholarId;
 		String data = getData(userUrl);
 		data = clearColleageData(data);
@@ -43,12 +35,10 @@ public class ConnectionFinder {
 			data = removeColleage(data);
 			if (data == null )
 				break;
-			System.out.println("name = "+grabName(data));
-			System.out.println("id = "+grabGoogleId(data));
-			System.out.println("uni  ="+grabUni(data));
-			System.out.println("");
-			
+			Person person = new Person(grabName(data), grabGoogleId(data), grabUni(data));
+			connections.add(person);
 		}
+		return connections;
 	}
 	
 	private ArrayList<Person> grabConnections(String data) {
@@ -56,17 +46,17 @@ public class ConnectionFinder {
 		return null;
 	}
 
-	private String removeColleage(String data){
+	private static String removeColleage(String data){
 		String openNameElement = "<div class=\"gsc_1usr gs_scl\">";
 		String closeNameElement = null;
 		return grabDataFromString(data, openNameElement, closeNameElement);
 	}
-	private String clearColleageData(String data){
+	private static String clearColleageData(String data){
 		String openNameElement = "<div id=\"gs_ccl\" role=\"main\">";
 		String closeNameElement = "</html>";
 		return grabDataFromString(data, openNameElement, closeNameElement);
 	}
-	private String grabName(String data){
+	private static String grabName(String data){
 		String openNameElement = "<h3 class=\"gsc_1usr_name\">";
 		String closeNameElement = "</h3>";
 		String tempData = grabDataFromString(data, openNameElement, closeNameElement);
@@ -78,21 +68,20 @@ public class ConnectionFinder {
 		return tempData;
 	}
 	
-	private String grabGoogleId(String data){
+	private static String grabGoogleId(String data){
 		String openNameElement = "<a href=\"/citations?user=";
 		String closeNameElement = "&";
 		return grabDataFromString(data, openNameElement, closeNameElement);
 	}
-	private String grabUni(String data){
+	private static String grabUni(String data){
 		String openNameElement = "<div class=\"gsc_1usr_emlb\">@";
 		String closeNameElement = "</div>";
 		return grabDataFromString(data, openNameElement, closeNameElement);
 	}
 	
-	private String grabDataFromString(String data, String openTag, String closeTag){
+	private static String grabDataFromString(String data, String openTag, String closeTag){
 		int startIndex = data.indexOf(openTag);
 		if(startIndex == -1){
-			System.err.println("ERROR: grabName");
 			return null;
 		}
 		startIndex += openTag.length();
