@@ -9,7 +9,6 @@ public class PersonManager {
 	private ArrayList<Person> proccesslist;
 	private ArrayList<Person> persons;
 	private String[] email;
-	int counter =0;
 	
 	public PersonManager(ArrayList<Person> Startpersons, String[] email) {
 		this.persons = new ArrayList<Person>();
@@ -41,14 +40,13 @@ public class PersonManager {
 			//System.err.println("processing "+ procPerson.getName() + " " + procPerson.getScholarId() + " "+ procPerson.getUniversity());
 			ArrayList<Person> connections = ConnectionFinder.getPersonsToConnections(procPerson.getScholarId());
 			procPerson.addConnection(connections);
-			if (counter < 10000)
+			if (persons.size() < 10000)
 				for (Person connection: connections){
 					//String address = connection.getUniversity();
 					//for (String mail: email){
 						//if (address != null && address.equals(mail))
 						//{
 							proccesslist.add(connection);
-							counter++;
 						//}
 					//}
 				}

@@ -204,6 +204,27 @@ public class Main {
 		results.add(new Person("Susan Coort", "XyHJkkMAAAAJ", "maastrichtuniversity.nl"));
 		results.add(new Person("Rianne Fijten", "_q5Rkg0AAAAJ", "maastrichtuniversity.nl"));
 		results.add(new Person("Kenneth Meijer", "8-vyiL8AAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Rene Kemp", "UTa35TcAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Jean-Jacques Herings", "bM6R-OwAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Gergely Csapó", "Ng8fWxQAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Erwin George", "mYMRsD4AAAAJ", "mumc.nl"));
+		results.add(new Person("Remo Arts", "WmD5FbgAAAAJ", "mumc.nl"));
+		results.add(new Person("Jasper V. Been", "osycggwAAAAJ", "mumc.nl"));
+		results.add(new Person("Rob Hermans", "NhMzNO8AAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Rainer Goebel", "FOi2cEYAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Chris Evelo", "2dm_Du0AAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Georg Summer", "PCHlV_MAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Andra Waagmeester", "5EQuXYoAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Christopher McCrum", "o170zXQAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Milene Bonte", "eqZkCLMAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Wim H. Saris", "2smwJZkAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("kasper Rouschop", "2Bp-kSIAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Marc Vooijs", "NVWxcj4AAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Samar Hayat Khan Tareen", "1RXC9I0AAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Tobias Harks", "ssVuFlcAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Egon Willighagen", "u8SjMZ0AAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Martina Kutmon", "w8Y7oXAAAAAJ", "maastrichtuniversity.nl"));
+		results.add(new Person("Sabine Daemen", "1N9dEYsAAAAJ", "maastrichtuniversity.nl"));
 		
 		String[] email = new String[3];
 		email[0] = "maastrichtuniversity.nl";
