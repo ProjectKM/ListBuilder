@@ -11,12 +11,14 @@ public class PersonManager {
 	private String[] email;
 	int counter =0;
 	
-	public PersonManager(ArrayList<Person> persons, String[] email) {
+	public PersonManager(ArrayList<Person> Startpersons, String[] email) {
 		this.persons = new ArrayList<Person>();
-		this.proccesslist = persons;
+		this.proccesslist = Startpersons;
 		this.email = email;
-		proccessList();
-		System.out.println("connections found = " + counter);
+		while (proccesslist.size() > 0 ){
+			proccessList();
+		}
+		System.out.println("persons found = " + persons.size());
 	}
 	
 	private void proccessList(){
@@ -24,17 +26,24 @@ public class PersonManager {
 		while (proccesslist.size() > 0 ){
 			procPerson = proccesslist.get(0);
 			proccesslist.remove(0);
-			System.err.println("processing "+ procPerson.getName());
 			for (Person person: persons){
 				if (procPerson.getScholarId().equals(person.getScholarId())){
 					return;
 				}
 			}
+			//results.add(new Person("jaap dronkers", "p0ABWjAAAAAJ", "maastrichtuniversity.nl"));
+			String address = procPerson.getUniversity();
+			for (String mail: email){
+				if (address != null && address.equals(mail)){
+					System.err.println("results.add(new Person(\""+procPerson.getName()+"\", \""+procPerson.getScholarId()+"\", \""+procPerson.getUniversity()+"\"));");
+				}
+			}
+			//System.err.println("processing "+ procPerson.getName() + " " + procPerson.getScholarId() + " "+ procPerson.getUniversity());
 			ArrayList<Person> connections = ConnectionFinder.getPersonsToConnections(procPerson.getScholarId());
 			procPerson.addConnection(connections);
-			if (counter < 1000)
+			if (counter < 10000)
 				for (Person connection: connections){
-					String address = connection.getUniversity();
+					//String address = connection.getUniversity();
 					//for (String mail: email){
 						//if (address != null && address.equals(mail))
 						//{
